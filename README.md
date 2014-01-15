@@ -21,7 +21,9 @@ public class MyApplication extends Application {
 
 }
 ```
-3. 修改AndroidManifest.xml
+
+3. 修改 AndroidManifest.xml
+
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
@@ -40,7 +42,9 @@ public class MyApplication extends Application {
 
 </manifest>
 ```
+
 4. 创建数据库
+
 ```java
 public class MyApplication extends Application {
 
@@ -58,7 +62,9 @@ public class MyApplication extends Application {
 
 }
 ```
+
 5.修改版本
+
 ```java
 public class MyApplication extends Application {
 
@@ -92,7 +98,9 @@ public class MyApplication extends Application {
 
 }
 ```
+
 6. 使用查询
+
 ```java
 Cursor cursor = new Select("id, name")
                 .from("users")
@@ -113,5 +121,4 @@ if (cursor.moveToNext()) {
 } else {
     Assert.fail("测试失败");
 }
-
 ```
