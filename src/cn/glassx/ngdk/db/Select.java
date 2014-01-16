@@ -2,6 +2,7 @@ package cn.glassx.ngdk.db;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.text.TextUtils;
 
 /**
  * Created by mj on 14-1-14.
@@ -11,8 +12,8 @@ public class Select {
     private String fields;
     private StringBuffer sql;
 
-    public Select(String fields) {
-        this.fields = fields;
+    public Select(String... fields) {
+        this.fields = TextUtils.join(",", fields);
         sql = new StringBuffer();
     }
 
@@ -26,7 +27,7 @@ public class Select {
         return this;
     }
 
-    public Select syntax(String criteria) {
+    public Select addSql(String criteria) {
         sql.append(String.format(" %s", criteria));
         return this;
     }
@@ -42,5 +43,4 @@ public class Select {
     public Cursor query(SQLiteDatabase sqLiteDatabase, String[] params) {
         return sqLiteDatabase.rawQuery(this.toSql(), params);
     }
-
 }
